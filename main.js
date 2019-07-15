@@ -185,6 +185,7 @@ function createTempSign(x, y, temp) {
     text.setAttributeNS(null,"font-size","3");
     text.setAttributeNS(null, 'x', x);
     text.setAttributeNS(null, 'y', y);
+    text.setAttributeNS(null, 'text-anchor', 'middle');
     text.setAttributeNS(null, 'style', 'fill:black');
     let textNode = document.createTextNode(temp);
     text.appendChild(textNode);
