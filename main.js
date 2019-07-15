@@ -181,11 +181,11 @@ function createTempSign(x, y, temp) {
     circle.setAttributeNS(null, 'fill', color);
     circle.setAttributeNS(null, 'r', 1);
 //---------------not work!!!!why?????----------------------
-    let text = document.createElementNS('svgNameSpace', 'text');
-    text.setAttributeNS(null,"font-size","100");
+    let text = document.createElementNS(svgNameSpace, 'text');
+    text.setAttributeNS(null,"font-size","3");
     text.setAttributeNS(null, 'x', x);
     text.setAttributeNS(null, 'y', y);
-    text.setAttributeNS(null, 'style', 'fill:white');
+    text.setAttributeNS(null, 'style', 'fill:black');
     let textNode = document.createTextNode(temp);
     text.appendChild(textNode);
     g.appendChild(circle);
