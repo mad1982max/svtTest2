@@ -17,3 +17,9 @@ object {
     height: 110px;
     
 }
+
+svg {
+    position: relative;
+    top:0;
+    left:0
+}

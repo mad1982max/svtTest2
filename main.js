@@ -190,6 +190,7 @@ function createTempSign(x, y, temp) {
     text.setAttributeNS(null, 'text-anchor', 'middle');
     text.setAttributeNS(null, 'font-size', '1px');
     text.setAttributeNS(null, 'style', 'fill:white');
+    text.setAttributeNS(null, 'font-weight', 'bold');
     let textNode = document.createTextNode(temp);
     text.appendChild(textNode);
     g.appendChild(circle);
@@ -238,44 +239,45 @@ let calculateOpacity = function(zoomVal, rangeOfOpacity){
     return result;
 }
 //-------------------------------------------------------
-// grid.addEventListener('mousedown', start_drag);
-// grid.addEventListener('mousemove', while_drag);
-// grid.addEventListener('mouseup', stop_drag);
-// main.addEventListener('mousedown', start_drag);
-// main.addEventListener('mousemove', while_drag);
-// main.addEventListener('mouseup', stop_drag);
-// svgObj.addEventListener('mousedown', start_drag);
-// svgObj.addEventListener('mousemove', while_drag);
-// svgObj.addEventListener('mouseup', stop_drag);
+grid.addEventListener('mousedown', start_drag);
+grid.addEventListener('mousemove', while_drag);
+grid.addEventListener('mouseup', stop_drag);
+main.addEventListener('mousedown', start_drag);
+main.addEventListener('mousemove', while_drag);
+main.addEventListener('mouseup', stop_drag);
+svgObj.addEventListener('mousedown', start_drag);
+svgObj.addEventListener('mousemove', while_drag);
+svgObj.addEventListener('mouseup', stop_drag);
 
-// let start_dr;
+let start_dr;
 
-// function start_drag(e) {
-//     console.log('start_drag');
-//     start_dr = {};
-//     start_dr.x = e.clientX;
-//     start_dr.y = e.clientY;
-// }
+function start_drag(e) {
+    console.log('start_drag');
+    start_dr = {};
+    start_dr.x = e.clientX;
+    start_dr.y = e.clientY;
+}
 
-// function while_drag(e) {
+function while_drag(e) {
     
-//     console.log('while_drag**');
-//     if (start_dr) {
-//         if (Math.abs(e.clientX - start_dr.x) > 0.6);
-//          main.scrollLeft += e.clientX - start_dr.x < 0 ? 20 : -20;
-//         if (Math.abs(e.clientY - start_dr.y) > 0.6);
-//         //main.scrollTop += e.clientY - start_dr.y < 0 ? 20: -20;
-//         start_dr.x = e.clientX;
-//         start_dr.y = e.clientY;
-//     }
-// }
+    console.log('while_drag**');
+    if (start_dr) {
+        if (Math.abs(e.clientX - start_dr.x) > 0.6);
+         main.scrollLeft += e.clientX - start_dr.x < 0 ? 5 : -5;
 
-// function stop_drag() {
-//     console.log('start_dr', start_dr )
-//     console.log('stop_drag');
-//     start_dr= null;
-//     console.log('start_dr', start_dr )
-// }
+        if (Math.abs(e.clientY - start_dr.y) > 0.6);
+        main.scrollTop += e.clientY - start_dr.y < 0 ? 5: -5;
+        start_dr.x = e.clientX;
+        start_dr.y = e.clientY;
+    }
+}
+
+function stop_drag() {
+    console.log('start_dr', start_dr )
+    console.log('stop_drag');
+    start_dr= null;
+    console.log('start_dr', start_dr )
+}
 
 
 
