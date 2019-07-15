@@ -1,7 +1,7 @@
 window.onload = () => {
     let svgNameSpace = "http://www.w3.org/2000/svg";
-    let bookedColor = 'red';
-    let freeColor = 'green';
+    let bookedColor = '#ffad99';
+    let freeColor = '#99ff99';
     let icoWidth = 3;
     let rangeOfTemp = 25;
     let rangeOfOpacity = 120;
@@ -102,9 +102,22 @@ window.onload = () => {
         bookable = arr.filter(space => space.bookable === true);
         nonBookable = arr.filter(space => space.bookable === false);
     }
+//---------------------------showFree & bokkable----------------------------------------
+function highlightRooms() {
+    bookable.forEach(el => {
+        let color = el.booked ? bookedColor: freeColor;
+        console.log(el.id, color)
+        grid.getElementById(el.id).firstElementChild.style.cssText = `fill: ${color}; opacity: 0.7`;
+    })
+}
+
+
+
+
 //----------------show signs and temp------------------------------
     showSigns();
     showTemp();
+    highlightRooms();
 //--------------------------showSigns------------------------------
     function showSigns() {
         let signGroupSVG = document.createElementNS(svgNameSpace, 'g');
@@ -193,8 +206,6 @@ grid.addEventListener('wheel', zoom)
  function zoom(e) {
     let curZoom = +zoomer.value
     let zoomVal = e.deltaY > 0? curZoom - zoomPace: curZoom + zoomPace;
-    console.log(zoomVal);
-
 
     updateLayers(zoomVal);
     zoomInformer.textContent = Math.round(zoomVal) + "%";

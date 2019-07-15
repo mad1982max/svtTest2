@@ -6,9 +6,10 @@ body {
     transform: scale(7,7);
     /* transform: scale(7,-7) rotate(-28deg); */
     position: absolute;
-    left: 500px;
+    left: 520px;
     top: 400px;
     overflow: hidden;
+    border: 1px solid grey
 }
 
 object {
