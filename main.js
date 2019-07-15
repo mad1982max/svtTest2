@@ -175,6 +175,7 @@ function createEl(x, y, fileName) {
 function createTempSign(x, y, temp) {
     let color = temp > rangeOfTemp? 'green': 'red';
     let g = document.createElementNS(svgNameSpace, 'g');
+
     let circle = document.createElementNS(svgNameSpace, 'circle');
     circle.setAttributeNS(null, 'cx', x);
     circle.setAttributeNS(null, 'cy', y);
@@ -185,8 +186,10 @@ function createTempSign(x, y, temp) {
     text.setAttributeNS(null,"font-size","3");
     text.setAttributeNS(null, 'x', x);
     text.setAttributeNS(null, 'y', y);
+    text.setAttributeNS(null, 'dy', 0.35);
     text.setAttributeNS(null, 'text-anchor', 'middle');
-    text.setAttributeNS(null, 'style', 'fill:black');
+    text.setAttributeNS(null, 'font-size', '1px');
+    text.setAttributeNS(null, 'style', 'fill:white');
     let textNode = document.createTextNode(temp);
     text.appendChild(textNode);
     g.appendChild(circle);
